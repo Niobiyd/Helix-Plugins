@@ -32,6 +32,19 @@ function PLUGIN:AddMood(strIndex, tblData)
 	self.moods[strIndex] = tblData
 end
 
+local tblWorkaround = {['ix_keys'] = true, ['ix_hands'] = true}
+function PLUGIN:CalcMainActivity(client, velocity)
+	if (PLUGIN:GetPlayerMood(client) != defaultIndex and tblWorkaround[client:GetActiveWeapon():GetClass()]) then
+		local modelClass = self.moods[PLUGIN:GetPlayerMood(client)][ix.anim.GetModelClass(client:GetModel())]
+
+		if (client.CalcSeqOverride ~= -1) then
+			client.CalcSeqOverride = client:LookupSequence(client.CalcSeqOverride)
+
+			return client.CalcIdeal, client.CalcSeqOverride
+		end
+	end
+end
+
 PLUGIN:AddMood('Test',
 {
 	--					-- 	
