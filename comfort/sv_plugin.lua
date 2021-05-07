@@ -4,8 +4,8 @@ local saveEnts = {
     ['fireplace'] = true,
     ['mine'] = true,
     ['spalnit'] = true,
-    ['nut_kerosinka'] = true,
-    ['nut_tent'] = true,
+    ['ix_kerosinka'] = true,
+    ['ix_tent'] = true,
     ['multipechka'] = true,
     ['pechka'] = true
 }
