@@ -1,3 +1,4 @@
+local PLUGIN = PLUGIN
 PLUGIN.name = 'Silent-Kill'
 PLUGIN.author = 'SuperMicronde | MediQ (ix)'
 PLUGIN.schema = 'Any'
@@ -15,7 +16,7 @@ function PlayerTakeDamageAtHead( target, dmg )
 		if IsValid( target ) && target:IsPlayer() && dmg:GetDamage() <= victimHealth && dmg:IsDamageType( DMG_BULLET ) then
 
 			local shootPos = dmg:GetDamagePosition()
-			local bonePos = target:GetBonePosition( target:LookupBone( 'bip01_head' ) || target:GetBonePosition(target:LookupBone( 'ValveBiped.Bip01_Head1' ) )
+			local bonePos = target:GetBonePosition( target:LookupBone( 'bip01_head' ) || target:GetBonePosition(target:LookupBone( 'ValveBiped.Bip01_Head1' ) ) )
 
 			if shootPos:Distance( bonePos ) < 10 then
 
