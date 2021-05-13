@@ -76,8 +76,8 @@ ix.command.Add('VoiceBan', {
 		if (IsValid(target)) then
 			if (target:GetData("VoiceBan")) then
 				target:SetData("VoiceBan", false)
+			end
 		end
-	    end
 
         client:Notify( 'You have mute a player.' )
         target:Notify( 'You ve been muted by the admin.' )
