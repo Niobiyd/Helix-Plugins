@@ -46,10 +46,17 @@ ix.command.Add('VoiceUnBan', {
     arguments = { ix.type.player },
     OnRun = function( self, client, target )
 
-       if ( target == client ) then
+    if ( target == client ) then
         client:Notify( 'You cannot unmute yourself.' )
         return false
-    end) 
+    end
+
+    if (IsValid(target)) then
+        if (!target:GetData("VoiceBan")) then
+            target:SetData("VoiceBan", true)
+        end
+    end
+
         client:Notify( 'You have unmute a player.' )
         target:Notify( 'You ve been unmuted by the admin.' )
     end,
@@ -61,10 +68,17 @@ ix.command.Add('VoiceBan', {
     arguments = { ix.type.player },
     OnRun = function( self, client, target )
 
-       if ( target == client ) then
+    if ( target == client ) then
         client:Notify( 'You cannot mute yourself.' )
         return false
-    end) 
+    end
+
+	if (IsValid(target)) then
+		if (target:GetData("VoiceBan")) then
+			target:SetData("VoiceBan", false);
+        end
+    end
+
         client:Notify( 'You have mute a player.' )
         target:Notify( 'You ve been muted by the admin.' )
     end,
