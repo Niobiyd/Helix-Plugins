@@ -75,7 +75,7 @@ ix.command.Add('VoiceBan', {
 
 		if (IsValid(target)) then
 			if (target:GetData("VoiceBan")) then
-				target:SetData("VoiceBan", false);
+				target:SetData("VoiceBan", false)
 		end
 	    end
 
