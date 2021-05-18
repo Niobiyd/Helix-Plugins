@@ -5,7 +5,7 @@ PLUGIN.schema = 'Any'
 
 ix.util.Include( 'sv_plugin.lua', 'server' )
 
-if (CLIENT) then
+-- if (CLIENT) then
 	--[[function Schema:Think()
 		local client = LocalPlayer()
 		if (client:Alive() and client:GetCharacter()) then
@@ -26,5 +26,4 @@ if (CLIENT) then
 			end
 		end
 	end]]
-end
-
+-- end
