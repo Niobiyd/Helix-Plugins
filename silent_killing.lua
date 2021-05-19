@@ -7,7 +7,7 @@ ix.config.Add('silentkill', true, 'Silent-Kill enable?', nil, {
 	category = 'server'
 })
 
-function PlayerTakeDamageAtHead( target, dmg )
+function PLUGIN:PlayerTakeDamageAtHead( target, dmg )
 
 	if ix.config.Get( 'silentkill', true ) then
 
