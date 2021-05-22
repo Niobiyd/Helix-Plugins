@@ -11,7 +11,8 @@ function PLUGIN:PlayerDeath( victim, inflictor, attacker )
 	end
 end
 
-ix.command.Add( 'ReturnDeathPos', {
+ix.command.Add( 'ReturnDeathPos',
+	{
 	OnRun = function( client, arguments )
 		if ( IsValid( client ) ) then
 			if ( client:Alive() ) then
@@ -29,4 +30,5 @@ ix.command.Add( 'ReturnDeathPos', {
 			end
 		end
 	end
-})
+	}
+)
