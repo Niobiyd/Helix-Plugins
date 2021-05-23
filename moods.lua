@@ -32,8 +32,13 @@ function PLUGIN:AddMood(strIndex, tblData)
 	self.moods[strIndex] = tblData
 end
 
-local tblWorkaround = {['ix_keys'] = true, ['ix_hands'] = true}
-function PLUGIN:CalcMainActivity(client, velocity)
+local tblWorkaround = 
+	{
+	['ix_keys'] = true,
+	['ix_hands'] = true
+	}
+
+function PLUGIN:CalcMainActivity( client, velocity )
 	if (PLUGIN:GetPlayerMood(client) != defaultIndex and tblWorkaround[client:GetActiveWeapon():GetClass()]) then
 		local modelClass = self.moods[PLUGIN:GetPlayerMood(client)][ix.anim.GetModelClass(client:GetModel())]
 
@@ -46,18 +51,20 @@ function PLUGIN:CalcMainActivity(client, velocity)
 end
 
 PLUGIN:AddMood('Test',
-{
+	{
 	--					-- 	
 	-- Your body 		-- ["citizen_male"] = {["idle"] = "LineIdle02", ["walk"] = "pace_all"},
 	--					--
-})
+	}
+)
 
 PLUGIN:AddMood('Test_1',
-{
+	{
 	--					-- 	
 	-- Your body 		-- ["citizen_male"] = {["idle"] = "LineIdle02", ["walk"] = "pace_all"},
 	--					--
-})
+	}
+)
 
 for k, v in pairs(PLUGIN.moods) do
 
