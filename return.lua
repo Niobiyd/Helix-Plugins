@@ -3,6 +3,20 @@ PLUGIN.Name = 'Return to death position.'
 PLUGIN.Author = 'Chancer [NS] | MediQ [ix]'
 PLUGIN.Schema = 'Any'
 
+ix.lang.AddTable('russian', 
+	{
+		Wait = 'Подождите, пока вы возродитесь.',
+		noDeathPos = 'Положение смерти не сохранено!',
+	}
+)
+
+ix.lang.AddTable('english',
+	{
+		Wait = 'Wait until you respawn.',
+		noDeathPos = 'No death position saved!',
+	}
+)
+
 function PLUGIN:PlayerDeath( victim, inflictor, attacker )
 	local char = victim:GetCharacter()
 	
@@ -13,22 +27,22 @@ end
 
 ix.command.Add( 'ReturnDeathPos',
 	{
-	OnRun = function( client, arguments )
-		if ( IsValid( client ) ) then
-			if ( client:Alive() ) then
-				local char = client:GetCharacter()
-				local oldPos = char:GetData("deathPos")
-				
-				if ( oldPos ) then
-					client:SetPos( oldPos )
-					char:SetData( 'deathPos', nil )
+		OnRun = function( client, arguments )
+			if ( IsValid( client ) ) then
+				if ( client:Alive() ) then
+					local char = client:GetCharacter()
+					local oldPos = char:GetData('deathPos')
+					
+					if ( oldPos ) then
+						client:SetPos( oldPos )
+						char:SetData( 'deathPos', nil )
+					else
+						client:NotifyLocalized( noDeathPos )
+					end
 				else
-					client:Notify( 'No death position saved.' )
+					client:NotifyLocalized( Wait )
 				end
-			else
-				client:Notify( 'Wait until you respawn.' )
 			end
 		end
-	end
 	}
 )
