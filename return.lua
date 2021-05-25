@@ -27,7 +27,8 @@ end
 
 ix.command.Add( 'ReturnDeathPos',
 	{
-		OnRun = function( client, arguments )
+		adminOnly = true,	
+		OnRun = function( client, target, arguments )
 			if ( IsValid( client ) ) then
 				if ( client:Alive() ) then
 					local char = client:GetCharacter()
