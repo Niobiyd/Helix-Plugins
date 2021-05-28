@@ -167,3 +167,9 @@ LANGUAGE = {
     CrossServerChatName = 'Cross Server Chat Name',
     CrossServerChatNameDesc = 'A unique server name for cross server chat.',
 }
+// or
+                                                                                                            
+ix.lang.AddTable("english", {
+    my_text = 'Text'
+}
+                                                                                                            
